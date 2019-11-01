@@ -1,5 +1,41 @@
 Basic Blog App Process notes
 ============================
 
-Resources
-==========
+
+Objective
+=========
+In this study, we'll make a basic blog application with CRUD operations (Create, Read, Update, and Delete) 
+functionality and implement mongoose so that we can store our information to a MongoDB database. I'm going
+to go step-by-step through the process to both guide learners and document the process for myself in an 
+effort to improve workflow.
+
+
+Process Workflow Summary
+========================
+
+Phase 1: Project Setup
+Phase 2: 
+Phase 3: 
+
+
+
+Phase 1: Project Setup
+======================
+    // Project Setup                           
+        1. Basic-Blog-App                      -- Create a folder to store you application.
+        2. npm init                            -- Create a package.json file to start the project off.
+    // Install application dependcies
+        3. npm install express                 -- Install express
+        4. npm install <dependencies>          -- Install any other dependencies (if you need to at the outset of the project).
+    // Add gitignore for node_modules
+        5. .gitignore                          -- Add .gitignore file to ignore node_modules folder.
+
+
+
+
+
+
+
+
+
+

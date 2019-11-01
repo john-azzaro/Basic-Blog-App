@@ -1,0 +1,27 @@
+{
+  "name": "basic-blog-app",
+  "version": "1.0.0",
+  "description": "Basic Blog Application with Mongoose Functionality",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john-azzaro/Basic-Blog-App.git"
+  },
+  "keywords": [
+    "blog",
+    "mongoose-blog",
+    "mongoose"
+  ],
+  "author": "John Azzaro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/john-azzaro/Basic-Blog-App/issues"
+  },
+  "homepage": "https://github.com/john-azzaro/Basic-Blog-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
