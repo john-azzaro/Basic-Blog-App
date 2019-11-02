@@ -2,6 +2,8 @@ Basic Blog App Process notes
 ============================
 
 
+
+
 Objective
 =========
 In this study, we'll make a basic blog application with CRUD operations (Create, Read, Update, and Delete) 
@@ -10,17 +12,26 @@ to go step-by-step through the process to both guide learners and document the p
 effort to improve workflow.
 
 
+
+
+
 Process Workflow Summary
 ========================
 
 Phase 1: Project Setup
-Phase 2: Create (and Test) your server:
-Phase 3: 
+Phase 2: Create (and Test) your server
+Phase 3: Setup your database connection 
+
+
 
 
 
 Phase 1: Project Setup
-======================
+=========================================================================================
+-- This phase is comprised of basic setup, installation of dependencies, development 
+   environment setup, and essential files like server.js, .gitignore, and .env.
+=========================================================================================
+
     // Project Setup:                           
         1. Basic-Blog-App                                      -- Create a folder to store you application.
         2. npm init                                            -- Create a package.json file to start the project off (you can use npm inti -y to skip the questions).
@@ -46,21 +57,26 @@ Phase 1: Project Setup
         Notes: 
             * Dont breeze through the npm init stage, take the time to setup the project correctly (i.e. server.js instead of index.js, etc.)
             * Submit everything AFTER you create the .gitignore file and add node_modules.
-            * Install a developer enviroment as good practice, it makes things a lot easier in development even if you end up not using it.        
+            * Install a developer enviroment as good practice, it makes things a lot easier in development even if you end up not using it.    
+            * You can have multiple custom scripts.    
         -------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
+
 Phase 2: Create (and Test) your server:
-=======================================
+=============================================================================================================
+-- This phase creates the basic express server and suggested testing stategy to ensure everything is working.
+=============================================================================================================
+
     1.  Load express and instantiate the express application:
         ---------------------------------------------------------
         const express = require('express');
         const app = express();
         ---------------------------------------------------------
 
-    2. Create a basic server to test the connection:
+    2. Create a (temporary) basic server to test the connection:
         ----------------------------------------------------------
         app.listen(3000, function() {
             console.log('Your app is listening on port 3000');
@@ -70,6 +86,7 @@ Phase 2: Create (and Test) your server:
     3. Test your connection
         * In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart".
         * If successful, you will see something like this:
+
             -----------------------------------------------------------------------
                 $ npm run devStart
 
@@ -83,6 +100,7 @@ Phase 2: Create (and Test) your server:
                 [nodemon] starting `node server.js`
                 Your app is listening on port 3000
             -----------------------------------------------------------------------
+
         * And when you go to "localhost:3000", you should see "Cannot GET /", which means that the server is working,
           but no routes are present yet! 
 
@@ -92,6 +110,16 @@ Phase 2: Create (and Test) your server:
               of the intricacies of creating a mongoose server, but experience has shown that you always want to double check your work to make sure
               you have a good point to reference back to where everything was functioning the way it is supposed to.            
         -----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+Phase 3: Setup your database connection:
+=======================================================================================================
+-- This phase is all about setting up mongoose, a framework that provides a modeling enviroment for
+   data, enforces structure, and manages relationships between data, providing schema validation, etc.
+=======================================================================================================
 
 
 
