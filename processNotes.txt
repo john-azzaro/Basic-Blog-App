@@ -52,16 +52,42 @@ Phase 1: Project Setup
 
 
 
-Phase 2: Create basic server
-============================
+Phase 2: Create (and Test) your server:
+=======================================
     1.  Load express and instantiate the express application:
         ---------------------------------------------------------
         const express = require('express');
         const app = express();
         ---------------------------------------------------------
 
-    2. Create a test
+    2. Create a basic server to test the connection:
+        ----------------------------------------------------------
+        app.listen(3000, function() {
+            console.log('Your app is listening on port 3000');
+        });
+        ----------------------------------------------------------
+            * In gitbash, you will can run the server like so (remember we have a custom script):
+                -----------------------------------------------------------------------
+                $ npm run devStart
 
+                > basic-blog-app@1.0.0 devStart C:\Users\Admin\Basic-Blog-App
+                > nodemon server.js
+
+                [nodemon] 1.19.4
+                [nodemon] to restart at any time, enter `rs`
+                [nodemon] watching dir(s): *.*
+                [nodemon] watching extensions: js,mjs,json
+                [nodemon] starting `node server.js`
+                Your app is listening on port 3000
+                -----------------------------------------------------------------------
+
+
+
+
+        -----------------------------------------------------------------------------------------------------------------------------------------
+        Notes:
+            * Although 
+        -----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -76,6 +102,10 @@ Phase 2: Create basic server
         ---------------------------------------------------------
         
 
+
+
+
+REST api study
 
 
 
