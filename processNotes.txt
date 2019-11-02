@@ -14,7 +14,7 @@ Process Workflow Summary
 ========================
 
 Phase 1: Project Setup
-Phase 2: Create Basic Server
+Phase 2: Create (and Test) your server:
 Phase 3: 
 
 
@@ -66,8 +66,11 @@ Phase 2: Create (and Test) your server:
             console.log('Your app is listening on port 3000');
         });
         ----------------------------------------------------------
-            * In gitbash, you will can run the server like so (remember we have a custom script):
-                -----------------------------------------------------------------------
+
+    3. Test your connection
+        * In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart".
+        * If successful, you will see something like this:
+            -----------------------------------------------------------------------
                 $ npm run devStart
 
                 > basic-blog-app@1.0.0 devStart C:\Users\Admin\Basic-Blog-App
@@ -79,15 +82,16 @@ Phase 2: Create (and Test) your server:
                 [nodemon] watching extensions: js,mjs,json
                 [nodemon] starting `node server.js`
                 Your app is listening on port 3000
-                -----------------------------------------------------------------------
+            -----------------------------------------------------------------------
+        * And when you go to "localhost:3000", you should see "Cannot GET /", which means that the server is working,
+          but no routes are present yet! 
 
-
-
-
-        -----------------------------------------------------------------------------------------------------------------------------------------
+        -----------------------------------------------------------------------------------------------------------------------------------------------
         Notes:
-            * Although 
-        -----------------------------------------------------------------------------------------------------------------------------------------
+            * It might seem like extra work to create an app.listen function that you will need to heavily modify, if not entirely remove because
+              of the intricacies of creating a mongoose server, but experience has shown that you always want to double check your work to make sure
+              you have a good point to reference back to where everything was functioning the way it is supposed to.            
+        -----------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
