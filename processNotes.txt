@@ -53,13 +53,16 @@ Phase 1: Project Setup
         8.1.   server.js                                       -- Creates a .js file for server code.
         8.2.   .env                                            -- Creates a file used by the dotenv package to define environment variables persistently.
          
-        -------------------------------------------------------------------------------------------------------------------------------------------
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes: 
             * Dont breeze through the npm init stage, take the time to setup the project correctly (i.e. server.js instead of index.js, etc.)
             * Submit everything AFTER you create the .gitignore file and add node_modules.
             * Install a developer enviroment as good practice, it makes things a lot easier in development even if you end up not using it.    
-            * You can have multiple custom scripts.    
-        -------------------------------------------------------------------------------------------------------------------------------------------
+            * You can have multiple custom scripts. 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+ 
 
 
 
@@ -104,12 +107,13 @@ Phase 2: Create (and Test) your server:
         * And when you go to "localhost:3000", you should see "Cannot GET /", which means that the server is working,
           but no routes are present yet! 
 
-        -----------------------------------------------------------------------------------------------------------------------------------------------
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
             * It might seem like extra work to create an app.listen function that you will need to heavily modify, if not entirely remove because
               of the intricacies of creating a mongoose server, but experience has shown that you always want to double check your work to make sure
               you have a good point to reference back to where everything was functioning the way it is supposed to.            
-        -----------------------------------------------------------------------------------------------------------------------------------------------
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
