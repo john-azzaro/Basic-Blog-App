@@ -14,7 +14,7 @@ Process Workflow Summary
 ========================
 
 Phase 1: Project Setup
-Phase 2: 
+Phase 2: Create Basic Server
 Phase 3: 
 
 
@@ -24,26 +24,37 @@ Phase 1: Project Setup
     // Project Setup                           
         1. Basic-Blog-App                                      -- Create a folder to store you application.
         2. npm init                                            -- Create a package.json file to start the project off (you can use npm inti -y to skip the questions).
+
     // Install express
         3. npm install express                                 -- Install express (note: you can also type "npm i" to install).
+
     // Add .gitignore file for node_modules        
         4. .gitignore > node_modules                           -- Add .gitignore file to ignore node_modules folder that was just added when you installed express.
+
     // Install application dependencies
         5. npm install <dependencies>                          -- Install any other dependencies (if you need to at the outset of the project like mongoose).
         6. npm install --save-dev dotenv nodemon               -- Install development enviroment.
+
     // Create custom "devStart" script in package.json     
         7. "devStart": "nodemon server.js"                     -- Running this command makes starting your server a little more streamlined.
+        
     // Create initial application files       
-        8.1.   server.js                                             -- Creates a .js file for server code.
-        8.2.   .env                                                  -- Creates a file used by the dotenv package to define environment variables persistently.
-
-            
-
-
+        8.1.   server.js                                       -- Creates a .js file for server code.
+        8.2.   .env                                            -- Creates a file used by the dotenv package to define environment variables persistently.
+         
+        -------------------------------------------------------------------------------------------------------------------------------------------
         Notes: 
             * Dont breeze through the npm init stage, take the time to setup the project correctly (i.e. server.js instead of index.js, etc.)
             * Submit everything AFTER you create the .gitignore file and add node_modules.
-            * Install a developer enviroment as good practice, it makes things a lot easier in development.
+            * Install a developer enviroment as good practice, it makes things a lot easier in development even if you end up not using it.        
+        -------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+Phase 2: Create basic server
+============================
+    // 
 
 
 
