@@ -79,10 +79,21 @@ Phase 2: Create (and Test) your server:
 
 
     2.2: Create a (temporary) basic server to test the connection:
+
         ----------------------------------------------------------
             app.listen(3000, function() {
                 console.log('Your app is listening on port 3000');
             });
+        ----------------------------------------------------------
+
+        or...
+
+        ----------------------------------------------------------
+            let server;                   
+
+            server = app.listen(3000, function() {    
+                console.log(`Listening on port 3000...`);       
+            })
         ----------------------------------------------------------
 
 
@@ -112,7 +123,10 @@ Phase 2: Create (and Test) your server:
         Notes:
             * It might seem like extra work to create a basic app.listen function that you will need to heavily modify, if not entirely remove because
               of the intricacies of creating a mongoose server because it might seem redundant, but experience has shown that you always want to double
-              check your work to make sure you have a good point to reference back to where everything was functioning the way it is supposed to.            
+              check your work to make sure you have a good point to reference back to where everything was functioning the way it is supposed to.
+            * IF you want to get in the habit of creating a server and account for EVENTUAL test integration, creating the server the second way
+              in step 2.2 is preferable. When the time comes, you would simply need to replace the port number (i.e. 3000) and the message when you
+              integrate this into the runServer function.         
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -237,7 +251,10 @@ Phase 3: Setup your database and server connection:
             * When you connect to mongoose, you need to pass in  "useNewUrlParser: true" and "useUnifiedTopology: true" to mongoose.connect to resolve
               deprecation issues.   
             * Special note on config.js files (vs. .env files): While both are used in development, config allows nested data while .env allows for
-              a cleaner data structure.
+              a cleaner data structure. 
+            * Another note on config.js (or .env) files: NORMALLY, you DO NOT want to commit these files to source control since they contain sensitive 
+              information. I've included them in this project so you can follow along, but you would want to add your config/env file to your .gitignore
+              at the outset.
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

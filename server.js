@@ -11,7 +11,6 @@ const app = express();                                                          
 
 
 
-
 // Server and Database connection...
 
 let server;                                                                               // 3.6 - Declare server outside runServer.
