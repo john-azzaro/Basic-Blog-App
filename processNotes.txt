@@ -73,17 +73,17 @@ Phase 2: Create (and Test) your server:
 -- This phase creates the basic express server and suggested testing stategy to ensure everything is working.
 =============================================================================================================
 
-    1.  Load express and instantiate the express application:
+    1.  Import express and instantiate the express application:
         ---------------------------------------------------------
-        const express = require('express');
-        const app = express();
+            const express = require('express');
+            const app = express();
         ---------------------------------------------------------
 
     2. Create a (temporary) basic server to test the connection:
         ----------------------------------------------------------
-        app.listen(3000, function() {
-            console.log('Your app is listening on port 3000');
-        });
+            app.listen(3000, function() {
+                console.log('Your app is listening on port 3000');
+            });
         ----------------------------------------------------------
 
     3. Test your connection
@@ -110,9 +110,9 @@ Phase 2: Create (and Test) your server:
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
-            * It might seem like extra work to create an app.listen function that you will need to heavily modify, if not entirely remove because
-              of the intricacies of creating a mongoose server, but experience has shown that you always want to double check your work to make sure
-              you have a good point to reference back to where everything was functioning the way it is supposed to.            
+            * It might seem like extra work to create a basic app.listen function that you will need to heavily modify, if not entirely remove because
+              of the intricacies of creating a mongoose server because it might seem redundant, but experience has shown that you always want to double
+              check your work to make sure you have a good point to reference back to where everything was functioning the way it is supposed to.            
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -126,13 +126,37 @@ Phase 3: Setup your database connection:
    data, enforces structure, and manages relationships between data, providing schema validation, etc.
 =======================================================================================================
 
-    1. Add mongoose (since we will interact with a database):
+    1. Import mongoose:
+        * This will make mongoose available in our application code.
         ---------------------------------------------------------
-        const mongoose = require('mongoose');
+            const mongoose = require('mongoose');
         ---------------------------------------------------------
+
+    2. Configure mongoose to use ES6 promises:
+        * Makes sure the application make use of promises.
+        ----------------------------------------------------------
+            mongoose.Promise = global.Promise;
+        ----------------------------------------------------------
+
+    3. Create a config.js file:
+        * The config.js file is where you can control the constants for the entire app, like database URL, PORT, etc.
+        ---------------------------
+            config.js
+        ---------------------------
+
+
+
+
+    3. Import values from config.js file: 
+        
         
 
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes:
+            * From what I can tell, configuring mongoose to use ES6 promises is more for legacy reasons and isnt needed in Mongoose 5+. However, it 
+              seems like it is best to add this in just in case as a best practice.          
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
