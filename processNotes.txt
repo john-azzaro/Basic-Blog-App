@@ -6,10 +6,10 @@ Basic Blog App Process notes
 
 Objective
 =========
-In this study, we'll make a basic blog application with CRUD operations (Create, Read, Update, and Delete) 
-functionality and implement mongoose so that we can store our information to a MongoDB database. I'm going
-to go step-by-step through the process to both guide learners and document the process for myself in an 
-effort to improve workflow.
+    In this study, we'll make a basic blog application with CRUD operations (Create, Read, Update, and Delete) 
+    functionality and implement mongoose so that we can store our information to a MongoDB database. I'm going
+    to go step-by-step through the process as both a general guide for others and to document the process for
+    myself in an effort to visualize and improve workflow.
 
 
 
@@ -17,9 +17,9 @@ effort to improve workflow.
 Process Workflow Summary
 ========================
 
-Phase 1: Project Setup.
-Phase 2: Create (and Test) your server.
-Phase 3: Setup your database and server connection.
+    Phase 1: Project Setup.
+    Phase 2: Create (and Test) your server.
+    Phase 3: Setup your database and server connection.
 
 
 
