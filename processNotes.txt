@@ -79,12 +79,14 @@ Phase 2: Create (and Test) your server:
             const app = express();
         ---------------------------------------------------------
 
+
     2.2: Create a (temporary) basic server to test the connection:
         ----------------------------------------------------------
             app.listen(3000, function() {
                 console.log('Your app is listening on port 3000');
             });
         ----------------------------------------------------------
+
 
     2.3: Test your connection
         * In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart".
@@ -132,12 +134,14 @@ Phase 3: Setup your database and server connection:
             const mongoose = require('mongoose');
         ---------------------------------------------------------
 
+
     3.2: Configure mongoose to use ES6 promises:
         * Makes sure the application make use of promises since we'll be using promises in the 
           runServer and closeServer functions.
         ----------------------------------------------------------
             mongoose.Promise = global.Promise;
         ----------------------------------------------------------
+
 
     3:3. Create a config.js file:
         * The config.js file is where you can control the constants for the entire app, 
@@ -146,6 +150,7 @@ Phase 3: Setup your database and server connection:
             config.js
         ---------------------------
 
+
     3.4: In config.js, add the constants you want to connect to:
         * In the case of this app, we want a PORT and our database URL.
         --------------------------------------------------------------------------------------
@@ -153,13 +158,23 @@ Phase 3: Setup your database and server connection:
             exports.PORT = process.env.PORT || 8080; 
         --------------------------------------------------------------------------------------   
 
+
     3.5: Import values from config.js file into your server.js file: 
         * Basically, import everything from the config.js file into your server.js file.
         ---------------------------------------------------------------------------------------
             const { DATABASE_URL, PORT } = require('./config');
         ---------------------------------------------------------------------------------------
 
-    3.6: Create a "runServer" function to connect to database and run HTTP server:
+
+    3.6: Add a "server" variable:
+        * By declaring "server" as a variable outside runServer because closeServer needs access to the
+          server object, so by declaring server outside
+        -----------------------------------
+            let server;
+        -----------------------------------
+
+
+    3.7: Create a "runServer" function to connect to database and run HTTP server:
         * The runServer function connects to the MongoDB database and runs the server in unison. The 
           function does this in a specific order:
                 1. Mongoose connects to our database using the URL's we provided in the config.js file.
@@ -189,13 +204,34 @@ Phase 3: Setup your database and server connection:
         -----------------------------------------------------------------------------------------------------------------  
         
 
+    3.8: Create a "closeServer" function to close the server:
+        * Although this seems unnecessary, including closeServer (and by extension the more complicated server connection 
+          process outlined abovehis is going to come in handy when you to integration tests.
+        ----------------------------------------------------------------------------------------------------------------
+            function closeServer() {                                                                                       // To close server:
+                return mongoose.disconnect().then(() => {                                                                  // disconnect and then...
+                    return new Promise((resolve, reject) => {                                                              // return a promise which...
+                        console.log("Closing server");                                                                     // ... will log "closing server"...
+                        server.close(err => {                                                                              // and close the server...
+                    if (err) {                                                                                             // and if there is an error, reject...
+                    return reject(err);                                  
+                    }
+                    resolve();                                                                                             // else resolve.
+                });
+                });
+            });
+            }
+        ----------------------------------------------------------------------------------------------------------------
+
+
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
             * From what I can tell, configuring mongoose to use ES6 promises is more for legacy reasons and isnt needed in Mongoose 5+. However, it 
               seems like it is best to add this in just in case as a best practice.   
-            * When you connect to mongoose, you need to pass in  "useNewUrlParser: true" and "useUnifiedTopology: true" to mongoose.connect to avoid
-              deprecation warnings.   
+            * When you connect to mongoose, you need to pass in  "useNewUrlParser: true" and "useUnifiedTopology: true" to mongoose.connect to resolve
+              deprecation issues.   
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
