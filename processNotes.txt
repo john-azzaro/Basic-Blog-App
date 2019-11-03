@@ -257,14 +257,31 @@ Phase 3: Setup your database and server connection:
 
 Phase 4: Add initial middleware
 ==================================================================================================
--- Middleware is code that runs after the server gets a request but BEFORE that request is sent to 
-   your application routes. There can be many middlewares in your stack, running one after the other
-   including built-in, third-party, and custom middleware.
+
 ==================================================================================================
 
+    4.1: Setup server to accept json:
+        * One of the most important initial middlewares to use is a built-in middleware called 
+          express.json. This middleware allows the server to accept incoming requestsas a JSON body 
+          rather than a GET, POST, element
+        ---------------------------------------------------------
+            app.use(express.json());
+        ---------------------------------------------------------
 
 
-
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes: 
+            * Middleware is code that runs after the server gets a request but BEFORE that request is sent to 
+              your application routes. There can be many middlewares in your stack, running one after the other
+              including built-in, third-party, and custom middleware.
+            * To install a middleware function, you can use app.use(), which installs the middleware 
+              function in the processing pipeline. When app.use() is called, the middleware will run
+              for ALL requests to the application, even to non-existent endpoints.
+            * For built-in middleware, you simply use "app.use()" and add in express.X where X is the built-in middleware, 
+              including (but not limited to): app.use(express.static('public')) which serves static content from a single
+              folder called "public" and houses html, js, css, etc.
+            * For third-party middleware, you would need to install it using npm (i.e.), load
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

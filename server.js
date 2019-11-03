@@ -10,6 +10,11 @@ const { DATABASE_URL, PORT } = require('./config');                             
 const app = express();                                                                   // 2.1 - Instantiate the app using Express.
 
 
+// Middleware
+
+app.use(express.json());
+
+
 
 // Server and Database connection...
 
