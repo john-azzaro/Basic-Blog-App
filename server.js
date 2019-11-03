@@ -12,18 +12,19 @@ const app = express();                                                          
 
 
 
+// Server and Database connection...
 
 let server; 
         
 function runServer(databaseUrl, port=PORT) {  
     return new Promise((resolve, reject) => {    
-        mongoose.connect(databaseUrl, err => { 
+        mongoose.connect(databaseUrl, { useNewUrlParser: true,  useUnifiedTopology: true }, err => { 
             if (err) {          
                 return reject(err);  
             }       
 
             server = app.listen(port, () => {    
-                console.log(`Listening on port ${port}`);  
+                console.log(`Listening on port ${port}...`);  
                 resolve();   
             })
             .on('error', err => {  
@@ -35,3 +36,23 @@ function runServer(databaseUrl, port=PORT) {
 }  
 
 
+function closeServer() {
+    return mongoose.disconnect().then(() => {
+      return new Promise((resolve, reject) => {
+        console.log('Closing server');
+        server.close(err => {
+          if (err) {
+            return reject(err);
+          }
+          resolve();
+        });
+      });
+    });
+  }
+
+
+  if (require.main === module) {
+    runServer(DATABASE_URL).catch(err => console.error(err));
+  }
+  
+  module.exports = { runServer, app, closeServer };
