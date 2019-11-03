@@ -145,10 +145,19 @@ Phase 3: Setup your database and server connection:
             config.js
         ---------------------------
 
-     3.4: In config.js   
+    3.4: In config.js, add the constants you want to connect to:
+        * In the case of this app, we want a PORT and our database URL.
+        --------------------------------------------------------------------------------------
+            exports.DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/blog-app'; 
+            exports.PORT = process.env.PORT || 8080; 
+        --------------------------------------------------------------------------------------   
 
+    3.5: Import values from config.js file into your server.js file: 
+        * Basically, import everything from the config.js file into your server.js file.
+        ---------------------------------------------------------------------------------------
+            
+        ---------------------------------------------------------------------------------------
 
-    3. Import values from config.js file: 
         
         
 
