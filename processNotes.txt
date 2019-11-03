@@ -155,7 +155,7 @@ Phase 3: Setup your database and server connection:
     3.5: Import values from config.js file into your server.js file: 
         * Basically, import everything from the config.js file into your server.js file.
         ---------------------------------------------------------------------------------------
-            
+            const { DATABASE_URL, PORT } = require('./config');
         ---------------------------------------------------------------------------------------
 
         
