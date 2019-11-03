@@ -266,12 +266,19 @@ Phase 4: Add initial middleware
             * One of the most important initial middlewares to use is a built-in middleware called 
             express.json. This middleware allows the server to accept incoming requestsas a JSON body 
             rather than a GET, POST, element
-            ---------------------------------------------------------
-                app.use(express.json());
-            ---------------------------------------------------------
+                ---------------------------------------------------------
+                    app.use(express.json());
+                ---------------------------------------------------------
 
     4.2: Install initial third-party middleware:
         4.2.A: Setup morgan middleware.
+            * After installing morgan in npm (npm install morgan), load the middleware in your server.js
+              file and return the middleware.
+                ----------------------------------------------------------
+                const morgan = require('morgan');
+
+                app.use(morgan('common'))
+                ----------------------------------------------------------
 
 
 
