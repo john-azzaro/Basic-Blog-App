@@ -50,8 +50,10 @@ function closeServer() {                                                        
   }
 
 
-  if (require.main === module) {
+if (require.main === module) {                                                              // 3.9 - In case server.js is called directly. 
     runServer(DATABASE_URL).catch(err => console.error(err));
-  }
+}
   
-  module.exports = { runServer, app, closeServer };
+
+
+//   module.exports = { runServer, app, closeServer };

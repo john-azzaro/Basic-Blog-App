@@ -14,7 +14,6 @@ effort to improve workflow.
 
 
 
-
 Process Workflow Summary
 ========================
 
@@ -25,12 +24,12 @@ Phase 3: Setup your database and server connection.
 
 
 
-
 Phase 1: Project Setup
 =========================================================================================
 -- This phase is comprised of basic setup, installation of dependencies, development 
    environment setup, and essential files like server.js, .gitignore, and .env.
 =========================================================================================
+
 
     // Project Setup:                           
         1. Basic-Blog-App                                      -- Create a folder to store you application.
@@ -224,6 +223,12 @@ Phase 3: Setup your database and server connection:
         ----------------------------------------------------------------------------------------------------------------
 
 
+    3.9: If server.js is called directly, run this block
+        -----------------------------------------------------------------------------------
+            if (require.main === module) {                                                             
+                runServer(DATABASE_URL).catch(err => console.error(err));
+            }
+        -----------------------------------------------------------------------------------
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
