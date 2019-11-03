@@ -18,9 +18,9 @@ effort to improve workflow.
 Process Workflow Summary
 ========================
 
-Phase 1: Project Setup
-Phase 2: Create (and Test) your server
-Phase 3: Setup your database connection 
+Phase 1: Project Setup.
+Phase 2: Create (and Test) your server.
+Phase 3: Setup your database and server connection.
 
 
 
@@ -73,20 +73,20 @@ Phase 2: Create (and Test) your server:
 -- This phase creates the basic express server and suggested testing stategy to ensure everything is working.
 =============================================================================================================
 
-    1.  Import express and instantiate the express application:
+    2.1:  Import express and instantiate the express application:
         ---------------------------------------------------------
             const express = require('express');
             const app = express();
         ---------------------------------------------------------
 
-    2. Create a (temporary) basic server to test the connection:
+    2.2: Create a (temporary) basic server to test the connection:
         ----------------------------------------------------------
             app.listen(3000, function() {
                 console.log('Your app is listening on port 3000');
             });
         ----------------------------------------------------------
 
-    3. Test your connection
+    2.3: Test your connection
         * In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart".
         * If successful, you will see something like this:
 
@@ -120,31 +120,32 @@ Phase 2: Create (and Test) your server:
 
 
 
-Phase 3: Setup your database connection:
+Phase 3: Setup your database and server connection:
 =======================================================================================================
 -- This phase is all about setting up mongoose, a framework that provides a modeling enviroment for
    data, enforces structure, and manages relationships between data, providing schema validation, etc.
 =======================================================================================================
 
-    1. Import mongoose:
+    3.1: Import mongoose:
         * This will make mongoose available in our application code.
         ---------------------------------------------------------
             const mongoose = require('mongoose');
         ---------------------------------------------------------
 
-    2. Configure mongoose to use ES6 promises:
+    3.2: Configure mongoose to use ES6 promises:
         * Makes sure the application make use of promises.
         ----------------------------------------------------------
             mongoose.Promise = global.Promise;
         ----------------------------------------------------------
 
-    3. Create a config.js file:
-        * The config.js file is where you can control the constants for the entire app, like database URL, PORT, etc.
+    3:3. Create a config.js file:
+        * The config.js file is where you can control the constants for the entire app, 
+          such as database URL, PORT, etc.
         ---------------------------
             config.js
         ---------------------------
 
-
+     3.4: In config.js   
 
 
     3. Import values from config.js file: 
