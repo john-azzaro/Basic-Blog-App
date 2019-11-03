@@ -257,16 +257,22 @@ Phase 3: Setup your database and server connection:
 
 Phase 4: Add initial middleware
 ==================================================================================================
-
+-- In this phase, you want to setup all the middleware that will be installed in your processing
+   pipeline and stack. 
 ==================================================================================================
 
-    4.1: Setup server to accept json:
-        * One of the most important initial middlewares to use is a built-in middleware called 
-          express.json. This middleware allows the server to accept incoming requestsas a JSON body 
-          rather than a GET, POST, element
-        ---------------------------------------------------------
-            app.use(express.json());
-        ---------------------------------------------------------
+    4.1: Install initial built-in middleware:
+        4.1.A: Setup server to accept json:
+            * One of the most important initial middlewares to use is a built-in middleware called 
+            express.json. This middleware allows the server to accept incoming requestsas a JSON body 
+            rather than a GET, POST, element
+            ---------------------------------------------------------
+                app.use(express.json());
+            ---------------------------------------------------------
+
+    4.2: Install initial third-party middleware:
+        4.2.A: Setup morgan middleware.
+
 
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -280,7 +286,15 @@ Phase 4: Add initial middleware
             * For built-in middleware, you simply use "app.use()" and add in express.X where X is the built-in middleware, 
               including (but not limited to): app.use(express.static('public')) which serves static content from a single
               folder called "public" and houses html, js, css, etc.
-            * For third-party middleware, you would need to install it using npm (i.e.), load
+            * For third-party middleware, you would need to install it using npm (i.e. npm morgan), load that middleware
+              in your server.js file (i.e. const morgan = require('morgan')), and then return that middleware (i.e.
+              app.use(morgan('tiny')); ).
+            * For custom middleware, you would need to write a custom middleware function and then return that middleware:
+                    function logErrors(err, req, res, next) {
+                        console.log(err);                                              
+                        return res.status(500).json({error: 'Something went wrong'})    
+                    }
+                    app.use(logErrors);
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
