@@ -119,20 +119,14 @@ Phase 2: Create (and Test) your server:
 
 
 
+
 Phase 3: Setup your database connection:
 =======================================================================================================
 -- This phase is all about setting up mongoose, a framework that provides a modeling enviroment for
    data, enforces structure, and manages relationships between data, providing schema validation, etc.
 =======================================================================================================
 
-
-
-
-
-
-
-
-    2. Add mongoose (since we will interact with a database):
+    1. Add mongoose (since we will interact with a database):
         ---------------------------------------------------------
         const mongoose = require('mongoose');
         ---------------------------------------------------------
@@ -141,7 +135,6 @@ Phase 3: Setup your database connection:
 
 
 
-REST api study
 
 
 
