@@ -50,7 +50,6 @@ Phase 1: Project Setup
         
     // Create initial application files:       
         8.1.   server.js                                       -- Creates a .js file for server code.
-        8.2.   .env                                            -- Creates a file used by the dotenv package to define environment variables persistently.
          
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -237,6 +236,8 @@ Phase 3: Setup your database and server connection:
               seems like it is best to add this in just in case as a best practice.   
             * When you connect to mongoose, you need to pass in  "useNewUrlParser: true" and "useUnifiedTopology: true" to mongoose.connect to resolve
               deprecation issues.   
+            * Special note on config.js files (vs. .env files): While both are used in development, config allows nested data while .env allows for
+              a cleaner data structure.
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
