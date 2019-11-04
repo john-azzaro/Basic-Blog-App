@@ -16,14 +16,13 @@ const app = express();                                                          
 app.use(express.json());                                                                 // 4.1 - Install built-in middleware like express.json.
 app.use(morgan('common'));                                                               // 4.2 - Install third-party middleware like morgan.
 
-
-// Server and Database connection...
-
-let server;                                                                               // 3.6 - Declare server outside runServer.
+                                                                                         // Server and Database connection...
+let server;                                                                              // 3.6 - Declare server outside runServer.
         
-function runServer(databaseUrl, port=PORT) {                                              // 3.7 - Connect to database and run HTTP server.
+function runServer(databaseUrl, port=PORT) {                                             // 3.7 - Connect to database and run HTTP server.
     return new Promise((resolve, reject) => {    
-        mongoose.connect(databaseUrl, { useNewUrlParser: true,  useUnifiedTopology: true }, err => { 
+        mongoose.connect(databaseUrl, { 
+            useNewUrlParser: true, useUnifiedTopology: true }, err => { 
             if (err) {          
                 return reject(err);  
             }       
