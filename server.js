@@ -39,7 +39,7 @@ function runServer(databaseUrl, port=PORT) {                                    
     });
 }  
 
-function closeServer() {                                                                    // 3.8 - Close server (for integration tests).
+function closeServer() {                                                                 // 3.8 - Close server (for integration tests).
     return mongoose.disconnect().then(() => {
       return new Promise((resolve, reject) => {
         console.log('Closing server');
@@ -53,11 +53,9 @@ function closeServer() {                                                        
     });
   }
 
-
-if (require.main === module) {                                                              // 3.9 - In case server.js is called directly. 
+if (require.main === module) {                                                           // 3.9 - In case server.js is called directly. 
     runServer(DATABASE_URL).catch(err => console.error(err));
 }
-  
 
 
 //   module.exports = { runServer, app, closeServer };
