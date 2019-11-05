@@ -20,7 +20,9 @@ Process Workflow Summary
     Phase 1: Project Setup.
     Phase 2: Create (and Test) your server.
     Phase 3: Setup your database and server connection.
-    Phase 4: Add initial middleware
+    Phase 4: Add initial middleware.
+    Phase 5: Create a mongoose schema and model.
+
 
 
 
@@ -50,7 +52,6 @@ Phase 1: Project Setup
     // Create initial application files:       
         8.1.   server.js                                       -- Creates a .js file for server code.
          
-
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes: 
             * Dont breeze through the npm init stage, take the time to setup the project correctly (i.e. server.js instead of index.js, etc.)
@@ -59,8 +60,6 @@ Phase 1: Project Setup
             * You can have multiple custom scripts. 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
- 
-
 
 
 
@@ -117,7 +116,6 @@ Phase 2: Create (and Test) your server:
               in step 2.2 is preferable. When the time comes, you would simply need to replace the port number (i.e. 3000) and the message when you
               integrate this into the runServer function.         
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
 
@@ -254,8 +252,7 @@ Phase 3: Setup your database and server connection:
 
 
 
-
-Phase 4: Add initial middleware
+Phase 4: Add initial middleware:
 ==================================================================================================
 -- In this phase, you want to setup all the middleware that will be installed in your processing
    pipeline and stack. 
@@ -281,7 +278,6 @@ Phase 4: Add initial middleware
                 ----------------------------------------------------------
 
 
-
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes: 
             * Middleware is code that runs after the server gets a request but BEFORE that request is sent to 
@@ -303,6 +299,27 @@ Phase 4: Add initial middleware
                     }
                     app.use(logErrors);
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+Phase 5: Create a mongoose schema and model.
+==============================================================================================================
+-- A schema is used to define the shape of the documents in your collection. Once you have your schema,  you 
+   need a mongoose model. A mongoose model wraps around the schema so that if can interface to the database 
+   for creating, querying, updating, deleting, etc.  
+-- To create a model, you need to first reference mongoose, define the schema, and export the model.
+-- Besides schemas, you can include virtuals (manipulates properties in the schema object) and instance 
+   methods (performs a specific action on a specific instance of a model).   
+==============================================================================================================
+
+
+
+
+
+
 
 
 
