@@ -21,20 +21,20 @@ let server;                                                                     
         
 function runServer(databaseUrl, port=PORT) {                                             // 3.7 - Connect to database and run HTTP server.
     return new Promise((resolve, reject) => {    
-        mongoose.connect(databaseUrl, { 
-            useNewUrlParser: true, useUnifiedTopology: true }, err => { 
-            if (err) {          
-                return reject(err);  
-            }       
+        mongoose
+            .connect(databaseUrl, { useNewUrlParser: true, useUnifiedTopology: true }, err => { 
+              if (err) {          
+                  return reject(err);  
+              }       
 
-            server = app.listen(port, () => {    
-                console.log(`Listening on port ${port}...`);  
-                resolve();   
-            })
-            .on('error', err => {  
-                mongoose.disconnect();  
-                reject(err);  
-            });
+              server = app.listen(port, () => {    
+                  console.log(`Listening on port ${port}...`);  
+                  resolve();   
+              })
+              .on('error', err => {  
+                  mongoose.disconnect();  
+                  reject(err);  
+              });
         });
     });
 }  
