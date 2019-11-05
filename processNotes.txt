@@ -330,19 +330,33 @@ Phase 5: Create a mongoose schema and model.
         -----------------------------------------------------
 
     STEP 4: Define Schema:
-        * 
-        --------------------------------------------------------------------------------
+        * Every time you call the "blogPostSchema" schema, you will create a new instance of this class.
+        -----------------------------------------------------
             const mongoose = require('mongoose');
             mongoose.Promise = global.Promise; 
 
-            const blogPostSchema = mongoose.Schema({
+            const blogPostSchema = mongoose.Schema({         // blogPostSchema defined.  
                // properties go here. 
             });
+        -----------------------------------------------------
 
-        --------------------------------------------------------------------------------
+    STEP 5: Add properties inside your schema:
+        * Each blog post will have the specified properties you have in your schema.
+        * Again, what we are doing here is defining the shape of the documents you will save to your database.
+        -------------------------------------------------------
+            const mongoose = require('mongoose');
+            mongoose.Promise = global.Promise;
 
-
-
+            const blogPostSchema = mongoose.Schema({
+                author: {                                    // author property with first and last name
+                    firstName: String,
+                    lastName: String
+                },
+                title: {type: String, required: true},       // title of the blog post
+                content: {type: String},                     // content of the blog
+                created: {type: Date, default: Date.now}     // date create (default is the current data (Date.now)).
+            });
+        --------------------------------------------------------
 
 
 
