@@ -313,23 +313,23 @@ Phase 5: Create a mongoose schema and model.
    methods (performs a specific action on a specific instance of a model).   
 ==============================================================================================================
 
-    STEP 1: Create a models.js file:
+    5.1: Create a models.js file:
         -----------------------------------
             models.js
         -----------------------------------
 
-    STEP 2: Reference Mongoose:
+    5.2: Reference Mongoose:
         -----------------------------------------------------
-            const mongoose = require('mongoose');            // 
+            const mongoose = require('mongoose');            // load mongoose 
         -----------------------------------------------------
 
-    STEP 3: Configure models.js to use ES6 promises:
+    5.3: Configure models.js to use ES6 promises:
         -----------------------------------------------------
             const mongoose = require('mongoose');
             mongoose.Promise = global.Promise;               // for ES6 promises
         -----------------------------------------------------
 
-    STEP 4: Define Schema:
+    5.4: Define Schema:
         * Every time you call the "blogPostSchema" schema, you will create a new instance of this class.
         -----------------------------------------------------
             const mongoose = require('mongoose');
@@ -340,7 +340,7 @@ Phase 5: Create a mongoose schema and model.
             });
         -----------------------------------------------------
 
-    STEP 5: Add properties inside your schema:
+    5.5: Add properties inside your schema:
         * Each blog post will have the specified properties you have in your schema.
         * Again, what we are doing here is defining the shape of the documents you will save to your database.
         -------------------------------------------------------
@@ -357,6 +357,8 @@ Phase 5: Create a mongoose schema and model.
                 created: {type: Date, default: Date.now}     // date create (default is the current data (Date.now)).
             });
         --------------------------------------------------------
+
+    5.6: 
 
 
 
