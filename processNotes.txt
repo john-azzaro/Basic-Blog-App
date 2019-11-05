@@ -397,7 +397,7 @@ Phase 5: Create a mongoose schema and model.
     5.7: Export the model for use in server.js.
         * You want to export all the models you want in a destuctured object.
         -----------------------------------------------------------------
-                    const mongoose = require('mongoose');
+            const mongoose = require('mongoose');
             mongoose.Promise = global.Promise;
 
             const blogPostSchema = mongoose.Schema({
@@ -418,7 +418,7 @@ Phase 5: Create a mongoose schema and model.
                 }
             });
 
-            const BlogPost = mongoose.model('BlogPost', blogPostSchema);  
+            const BlogPost = mongoose.model('BlogPost', blogPostSchema);     
 
             module.exports = {BlogPost};                                     // export the BlogPost model created above.
         ----------------------------------------------------------------

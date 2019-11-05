@@ -21,5 +21,7 @@ const blogPostSchema = mongoose.Schema({                    // 5.5 - Blog post s
     }
 });
 
-const BlogPost = mongoose.model('BlogPost', blogPostSchema);        // 
+const BlogPost = mongoose.model('BlogPost', blogPostSchema);        // 5.6 - Create a BlogPost model.
+
+module.exports = {BlogPost};                                        // 5.7 - Export Blogpost for use in server.js.
 
