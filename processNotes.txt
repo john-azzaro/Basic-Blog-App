@@ -320,9 +320,26 @@ Phase 5: Create a mongoose schema and model.
 
     STEP 2: Reference Mongoose:
         -----------------------------------------------------
-            const mongoose = require('mongoose');
+            const mongoose = require('mongoose');            // 
         -----------------------------------------------------
 
+    STEP 3: Configure models.js to use ES6 promises:
+        -----------------------------------------------------
+            const mongoose = require('mongoose');
+            mongoose.Promise = global.Promise;               // for ES6 promises
+        -----------------------------------------------------
+
+    STEP 4: Define Schema:
+        * 
+        --------------------------------------------------------------------------------
+            const mongoose = require('mongoose');
+            mongoose.Promise = global.Promise; 
+
+            const blogPostSchema = mongoose.Schema({
+               // properties go here. 
+            });
+
+        --------------------------------------------------------------------------------
 
 
 
