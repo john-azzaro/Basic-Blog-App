@@ -234,7 +234,6 @@ Phase 3: Setup your database and server connection:
             }
         -----------------------------------------------------------------------------------
 
-
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
             * From what I can tell, configuring mongoose to use ES6 promises is more for legacy reasons and isnt needed in Mongoose 5+. However, it 
@@ -277,7 +276,6 @@ Phase 4: Add initial middleware:
                 app.use(morgan('common'))
                 ----------------------------------------------------------
 
-
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes: 
             * Middleware is code that runs after the server gets a request but BEFORE that request is sent to 
@@ -314,6 +312,11 @@ Phase 5: Create a mongoose schema and model.
 -- Besides schemas, you can include virtuals (manipulates properties in the schema object) and instance 
    methods (performs a specific action on a specific instance of a model).   
 ==============================================================================================================
+
+    STEP 1: Create a models.js file
+        -----------------------------------
+            models.js
+        -----------------------------------
 
 
 
