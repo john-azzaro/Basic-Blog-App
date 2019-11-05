@@ -1,9 +1,9 @@
 'use strict';
 
-const mongoose = require('mongoose');                       //
-mongoose.Promise = global.Promise;                          //
+const mongoose = require('mongoose');                       // 5.2 - Reference mongoose.
+mongoose.Promise = global.Promise;                          // 5.3 - Configure Mongoose to use ES6 promises.
 
-const blogPostSchema = mongoose.Schema({                    //
+const blogPostSchema = mongoose.Schema({                    // 5.5 - Blog post schema.
     author: { 
         firstName: String,
         lastName: String
