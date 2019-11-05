@@ -313,11 +313,15 @@ Phase 5: Create a mongoose schema and model.
    methods (performs a specific action on a specific instance of a model).   
 ==============================================================================================================
 
-    STEP 1: Create a models.js file
+    STEP 1: Create a models.js file:
         -----------------------------------
             models.js
         -----------------------------------
 
+    STEP 2: Reference Mongoose:
+        -----------------------------------------------------
+            const mongoose = require('mongoose');
+        -----------------------------------------------------
 
 
 
