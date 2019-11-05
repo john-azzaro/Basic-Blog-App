@@ -352,13 +352,77 @@ Phase 5: Create a mongoose schema and model.
                     firstName: String,
                     lastName: String
                 },
-                title: {type: String, required: true},       // title of the blog post
-                content: {type: String},                     // content of the blog
-                created: {type: Date, default: Date.now}     // date create (default is the current data (Date.now)).
+                title: {                                     // title of the blog post
+                    type: String, 
+                    required: true
+                }, 
+                content: {                                   // content of the blog
+                    type: String
+                },
+                created: {                                   // date create (default is the current data (Date.now)).
+                    type: Date, 
+                    default: Date.now
+                }
             });
         --------------------------------------------------------
 
-    5.6: 
+    5.6: Create a model for your schema(e.g. blogPostSchema)
+        * In this case, we only have one schema, blogPostSchema, so we only need to create one model. 
+          However, you would want to create more models for different schemas if needed.
+        ----------------------------------------------------------------
+            const mongoose = require('mongoose');
+            mongoose.Promise = global.Promise;
+
+            const blogPostSchema = mongoose.Schema({
+                author: { 
+                    firstName: String,
+                    lastName: String
+                },
+                title: { 
+                    type: String, 
+                    required: true
+                }, 
+                content: {
+                    type: String
+                },
+                created: {
+                    type: Date, 
+                    default: Date.now
+                }
+            });
+
+            const BlogPost = mongoose.model('BlogPost', blogPostSchema);     // model for blogPostSchema
+        ----------------------------------------------------------------
+
+    5.7: Export the model for use in server.js.
+        * You want to export all the models you want in a destuctured object.
+        -----------------------------------------------------------------
+                    const mongoose = require('mongoose');
+            mongoose.Promise = global.Promise;
+
+            const blogPostSchema = mongoose.Schema({
+                author: { 
+                    firstName: String,
+                    lastName: String
+                },
+                title: { 
+                    type: String, 
+                    required: true
+                }, 
+                content: {
+                    type: String
+                },
+                created: {
+                    type: Date, 
+                    default: Date.now
+                }
+            });
+
+            const BlogPost = mongoose.model('BlogPost', blogPostSchema);  
+
+            module.exports = {BlogPost};                                     // export the BlogPost model created above.
+        ----------------------------------------------------------------
+
 
 
 

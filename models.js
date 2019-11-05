@@ -21,3 +21,5 @@ const blogPostSchema = mongoose.Schema({                    // 5.5 - Blog post s
     }
 });
 
+const BlogPost = mongoose.model('BlogPost', blogPostSchema);        // 
+
