@@ -18,10 +18,11 @@ Process Workflow Summary
 ========================
 
     Phase 1: Project Setup.
-    Phase 2: Create (and Test) your server.
+    Phase 2: Create (and test) your server.
     Phase 3: Setup your database and server connection.
     Phase 4: Add initial middleware.
-    Phase 5: Create a mongoose schema and model (and including virtuals and instance methods if needed).
+    Phase 5: Create a mongoose schema and model (including virtuals and instance methods if needed).
+    Phase 6: Create (and test) routes.
 
 
 
@@ -266,6 +267,7 @@ Phase 4: Add initial middleware:
                     app.use(express.json());
                 ---------------------------------------------------------
 
+
     4.2: Install initial third-party middleware:
         4.2.A: Setup morgan middleware.
             * After installing morgan in npm (npm install morgan), load the middleware in your server.js
@@ -303,7 +305,7 @@ Phase 4: Add initial middleware:
 
 
 
-Phase 5: Create a mongoose schema and model (and including virtuals and instance methods if needed).
+Phase 5: Create a mongoose schema and model (including virtuals and instance methods if needed).
 ==============================================================================================================
 -- A schema is used to define the shape of the documents in your collection. Once you have your schema,  you 
    need a mongoose model. A mongoose model wraps around the schema so that if can interface to the database 
@@ -313,21 +315,25 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
    methods (performs a specific action on a specific instance of a model).   
 ==============================================================================================================
 
+
     5.1: Create a models.js file:
         -----------------------------------
             models.js
         -----------------------------------
+
 
     5.2: Reference Mongoose:
         -----------------------------------------------------
             const mongoose = require('mongoose');            // load mongoose 
         -----------------------------------------------------
 
+
     5.3: Configure models.js to use ES6 promises:
         -----------------------------------------------------
             const mongoose = require('mongoose');
             mongoose.Promise = global.Promise;               // for ES6 promises
         -----------------------------------------------------
+
 
     5.4: Define Schema:
         * Every time you call the "blogPostSchema" schema, you will create a new instance of this class.
@@ -339,6 +345,7 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
                // properties go here. 
             });
         -----------------------------------------------------
+
 
     5.5: Add properties inside your schema:
         * Each blog post will have the specified properties you have in your schema.
@@ -365,6 +372,7 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
                 }
             });
         --------------------------------------------------------
+
 
     5.6: Create a model for your schema(e.g. blogPostSchema)
         * In this case, we only have one schema, blogPostSchema, so we only need to create one model. 
@@ -393,6 +401,7 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
 
             const BlogPost = mongoose.model('BlogPost', blogPostSchema);     // model for blogPostSchema
         ----------------------------------------------------------------
+
 
     5.7: Export the model for use in server.js.
         * You want to export all the models you want in a destuctured object.
@@ -423,10 +432,6 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
             module.exports = {BlogPost};                                     // export the BlogPost model created above.
         ----------------------------------------------------------------
         
-
-
-        
-
 
     5.8: Create virtuals (if needed):
         * A virtusal allows you to manipulate properties for you schema. For example, suppose you have a document with "author" 
@@ -460,7 +465,7 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
             blogPostSchema.methods.serialize = function() {
                 return {
                     id: this._id,
-                    author: this.authorName,
+                    author: this.authorName,                                // note the inclusion of the virtual "authorName"
                     content: this.content,
                     title: this.title,
                     created: this.created                   
@@ -469,16 +474,26 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
         -------------------------------------------------------------------
 
 
-
-
-
-
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     Notes:
-        * 
+        * You need to load mongoose and configure models.js to use ES6 promises for mongoose for every file you work with that
+          will interact with the mongoDB database.
+        * Do the schema first so you have a good idea what you want your document to look like. You cannnot do your virtuals or
+          instance methods without knowing what you work with first (i.e. your schema).
+        * You can have multiple schemas in the same document if you wish, alhtough you can (and should) create seperate model files
+          if you model is extensive. But if you do add more schemas to a single model.js file, be sure to create seperate models for
+          them and then export them inside the destructured module.exports at the bottom.
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+
+Phase 6: Create (and test) routes.
+===========================================================================================================
+-- 
+===========================================================================================================
 
 
