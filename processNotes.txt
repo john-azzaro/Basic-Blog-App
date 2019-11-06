@@ -428,8 +428,15 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
           and that author property had an object as a value with 2 sub-properties, firstName and lastName. Although you could 
           have a combination in the document itself or concatenate the properties in the application, creating a virtual is 
           much easier and cleaner for your code.
+        * To create a virtual, simply call the schema, chain the "virtual" method. Then, we pass as an argument the name of
+          virtual, which we'll call "authorName" (this will concatenate the first and last names together). Then we chain the 
+          .get method and the 
 
-          
+
+         ---------------------------------------------------------------------
+         blogPostSchema.virtual('')
+
+         --------------------------------------------------------------------- 
 
 
 
