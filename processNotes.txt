@@ -22,7 +22,7 @@ Process Workflow Summary
     Phase 3: Setup your database and server connection.
     Phase 4: Add initial middleware.
     Phase 5: Create a mongoose schema and model (including virtuals and instance methods if needed).
-    Phase 6: Create (and test) routes.
+    Phase 6: Create pseudo routes (and test).
 
 
 
@@ -491,9 +491,11 @@ Phase 5: Create a mongoose schema and model (including virtuals and instance met
 
 
 
-Phase 6: Create (and test) routes.
+Phase 6: Create pseudo routes (and test).
 ===========================================================================================================
--- 
+-- Before creating the routes that you'll need for your application, its a good idea to lay the groundwork
+   and create a scaffold of each of the routes you will need for your application. In the case of this blog
+   application, we'll need to create the standard CRUD operation with additional functionality for 
 ===========================================================================================================
 
 
