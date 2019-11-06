@@ -495,7 +495,35 @@ Phase 6: Create pseudo routes (and test).
 ===========================================================================================================
 -- Before creating the routes that you'll need for your application, its a good idea to lay the groundwork
    and create a scaffold of each of the routes you will need for your application. In the case of this blog
-   application, we'll need to create the standard CRUD operation with additional functionality for 
+   application, we'll need to create the standard CRUD operations with routes for specific functionality.
+
 ===========================================================================================================
 
+    6.1: Create pseudo routes:
+        --------------------------------------------------------------------------
+            // GET ALL subscribers
+            app.get('/posts', (req, res) => {                             <== for all, we want the direct path.
 
+            });
+
+            // GET One subscriber                                            <== to get one subscriber, we need to add the :id  parameter (represents the subscriber).
+            app.get('/posts/:id', (req, res) => {
+
+            });
+
+            // CREATE subscriber                                             <== Create a subscriber on the general route.
+            app.post('/posts', (req, res) => {
+
+            });
+
+            // UPDATE subscriber
+            app.put('/posts/:id', (req, res) => {                                  <== update with "patch" so we update only what the user passes with the :id parameter
+
+            });
+
+            // DELETE Subscriber                                             <== delete with user id parameter.
+            router.delete('posts/:id', (req, res) => {
+
+            });
+
+        --------------------------------------------------------------------------
