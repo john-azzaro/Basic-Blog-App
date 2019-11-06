@@ -440,7 +440,7 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
 
          ---------------------------------------------------------------------
          blogPostSchema.virtual('authorName').get(function() {
-             return `$(this.author.firstName) $(this.author.lastName)`.trim();
+             return `$(this.author.firstName) $(this.author.lastName)`.trim();    // concatenated firstName and lastName.
          });
          --------------------------------------------------------------------- 
 
@@ -457,7 +457,15 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
           serialize since we want to serialize the document that the client recieves). And last, return modified document that the
           client will recieve.
         -------------------------------------------------------------------
-            
+            blogPostSchema.methods.serialize = function() {
+                return {
+                    id: this._id,
+                    author: this.authorName,
+                    content: this.content,
+                    title: this.title,
+                    created: this.created                   
+                };
+            };
         -------------------------------------------------------------------
 
 
