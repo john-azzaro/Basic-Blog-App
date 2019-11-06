@@ -425,7 +425,11 @@ Phase 5: Create a mongoose schema and model (and including virtuals and instance
         
     5.9: Create virtuals (if needed):
         * A virtusal allows you to manipulate properties for you schema. For example, suppose you have a document with "author" 
-          and that author property had an object as a value with 2 sub-properties, firstName and lastName. 
+          and that author property had an object as a value with 2 sub-properties, firstName and lastName. Although you could 
+          have a combination in the document itself or concatenate the properties in the application, creating a virtual is 
+          much easier and cleaner for your code.
+
+          
 
 
 
