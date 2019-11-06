@@ -22,7 +22,7 @@ Process Workflow Summary
     Phase 3: Setup your database and server connection.
     Phase 4: Add initial middleware.
     Phase 5: Create a mongoose schema and model (including virtuals and instance methods if needed).
-    Phase 6: Create pseudo routes (and test).
+    Phase 6: Create route scaffold (and test).
 
 
 
@@ -491,7 +491,7 @@ Phase 5: Create a mongoose schema and model (including virtuals and instance met
 
 
 
-Phase 6: Create pseudo routes (and test).
+Phase 6: Create route scaffold (and test).
 ===========================================================================================================
 -- Before creating the routes that you'll need for your application, its a good idea to lay the groundwork
    and create a scaffold of each of the routes you will need for your application. In the case of this blog
@@ -500,30 +500,34 @@ Phase 6: Create pseudo routes (and test).
 ===========================================================================================================
 
     6.1: Create pseudo routes:
-        --------------------------------------------------------------------------
-            // GET ALL subscribers
-            app.get('/posts', (req, res) => {                             <== for all, we want the direct path.
+        -------------------------------------------------------
+                                                                    // GET ALL posts
+            app.get('/posts', (req, res) => {                       // for all, we want the direct path.
 
             });
 
-            // GET One subscriber                                            <== to get one subscriber, we need to add the :id  parameter (represents the subscriber).
-            app.get('/posts/:id', (req, res) => {
+                                                                    // GET One posts  
+            app.get('/posts/:id', (req, res) => {                   // to get one posts, we need to add the :id  parameter (represents the posts).
 
             });
 
-            // CREATE subscriber                                             <== Create a subscriber on the general route.
-            app.post('/posts', (req, res) => {
+                                                                    // CREATE posts                                  
+            app.post('/posts', (req, res) => {                      // Create a posts on the general route.
 
             });
 
-            // UPDATE subscriber
-            app.put('/posts/:id', (req, res) => {                                  <== update with "patch" so we update only what the user passes with the :id parameter
+                                                                    // UPDATE posts
+            app.put('/posts/:id', (req, res) => {                   // update with "patch" and the :id parameter
 
             });
 
-            // DELETE Subscriber                                             <== delete with user id parameter.
-            router.delete('posts/:id', (req, res) => {
+                                                                    // DELETE posts                                 
+            app.delete('posts/:id', (req, res) => {                 // delete with user id parameter.
 
             });
 
-        --------------------------------------------------------------------------
+            app.use('*', (req, res) => {                            // REDIRECT 404
+                res.status(404).json({ message: 'Not Found' });     // send 404 and a json object saying "Not Found".
+            });
+            
+        -------------------------------------------------------
