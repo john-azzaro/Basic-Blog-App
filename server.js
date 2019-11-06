@@ -14,7 +14,7 @@ const app = express();                                                          
 
                                                                                          // Middleware
 app.use(express.json());                                                                 // 4.1 - Install built-in middleware like express.json.
-app.use(morgan('common'));                                                               // 4.2 - Install third-party middleware like morgan.
+app.use(morgan('common'));                                                               // 4.2 - Install third-party middleware like morgan        (note: phase 5 is in models.js).
 
                                                                                          // Server and Database connection...
 let server;                                                                              // 3.6 - Declare server outside runServer.

@@ -25,6 +25,15 @@ blogPostSchema.virtual('authorName').get(function() {                      // 5.
     return `$(this.author.firstName) $(this.author.lastName)`.trim();
 });
 
+blogPostSchema.methods.serialize = function() {                             // 5.9 - Add an instance method that serializes the schema shown to clients.
+    return { 
+        id: this._id,
+        author: this.authorName,
+        content: this.content,
+        title: this.title,
+        created: this.created                   
+    };
+};
 
 const BlogPost = mongoose.model('BlogPost', blogPostSchema);        // 5.6 - Create a BlogPost model.
 
