@@ -33,11 +33,11 @@ app.put('/posts/:id', (req, res) => {                                           
 
 });
 
-app.delete('posts/:id', (req, res) => {                                                  // 6.1 -
+app.delete('posts/:id', (req, res) => {                                                  // 6.1 - Delete a document by id at the /posts endpoint.
 
 });
 
-app.use('*', (req, res) => {                                                             // 6.2 -
+app.use('*', (req, res) => {                                                             // 6.2 - If nothing else responds, assume 404 Not Found.
     res.status(404).json({ message: 'Not Found' });
 });
 
