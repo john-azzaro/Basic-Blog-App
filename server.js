@@ -17,27 +17,27 @@ app.use(express.json());                                                        
 app.use(morgan('common'));                                                               // 4.2 - Install third-party middleware like morgan        (note: phase 5 is in models.js).
 
                                                                                          // Routes:
-app.get('/posts', (req, res) => {                                                        // 
+app.get('/posts', (req, res) => {                                                        // 6.1 - Get a request at the /posts endpoint.
 
 });
  
-app.get('/posts/:id', (req, res) => {                                                    //
+app.get('/posts/:id', (req, res) => {                                                    // 6.1 - Get a request by id at the /posts endpoint.
 
 });
 
-app.post('/posts', (req, res) => {                                                       //
+app.post('/posts', (req, res) => {                                                       // 6.1 - Post a request (create a post) at the /posts endpoint.
 
 });
 
-app.put('/posts/:id', (req, res) => {                                                    //
+app.put('/posts/:id', (req, res) => {                                                    // 6.1 - Modify a document by id at the .posts endpoint.
 
 });
 
-app.delete('posts/:id', (req, res) => {                                                  //
+app.delete('posts/:id', (req, res) => {                                                  // 6.1 -
 
 });
 
-app.use('*', (req, res) => {                                                             //
+app.use('*', (req, res) => {                                                             // 6.2 -
     res.status(404).json({ message: 'Not Found' });
 });
 
