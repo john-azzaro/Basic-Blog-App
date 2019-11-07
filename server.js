@@ -1,6 +1,6 @@
 'use strict';
 
-                                                                                         // Imports:
+                                                                                         // Imports etc.:
 const express = require('express');                                                      // 2.1 - Import Express.
 const mongoose = require('mongoose');                                                    // 3.1 - Import Mongoose.
 const morgan = require('morgan');                                                        // 4.2 - Import Morgan.
@@ -21,23 +21,23 @@ app.get('/posts', (req, res) => {                                               
 
 });
  
-app.get('/posts/:id', (req, res) => {
+app.get('/posts/:id', (req, res) => {                                                    //
 
 });
 
-app.post('/posts', (req, res) => {
+app.post('/posts', (req, res) => {                                                       //
 
 });
 
-app.put('/posts/:id', (req, res) => {
+app.put('/posts/:id', (req, res) => {                                                    //
 
 });
 
-app.delete('posts/:id', (req, res) => {
+app.delete('posts/:id', (req, res) => {                                                  //
 
 });
 
-app.use('*', (req, res) => {
+app.use('*', (req, res) => {                                                             //
     res.status(404).json({ message: 'Not Found' });
 });
 

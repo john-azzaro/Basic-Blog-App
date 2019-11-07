@@ -541,5 +541,8 @@ Phase 6: Create route scaffold (and test).
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
+            * For the 404 not found middleware, you need to have this at the end of the routes so that if there is no route that
+              matches the client request, this (the last non-error handling middleware in the stack) you assume a 404 status 
+              because no route has handled the request.
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
