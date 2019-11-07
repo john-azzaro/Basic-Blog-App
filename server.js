@@ -18,11 +18,11 @@ app.use(morgan('common'));                                                      
 
                                                                                          // Routes:
 app.get('/posts', (req, res) => {                                                        // 6.1 - Get a request at the /posts endpoint.
-
+  res.send('This is a test')
 });
  
 app.get('/posts/:id', (req, res) => {                                                    // 6.1 - Get a request by id at the /posts endpoint.
-
+  res.send(req.params.id);
 });
 
 app.post('/posts', (req, res) => {                                                       // 6.1 - Post a request (create a post) at the /posts endpoint.

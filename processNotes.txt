@@ -539,10 +539,17 @@ Phase 6: Create route scaffold (and test).
         -------------------------------------------------------
 
     6.3: OPTIONAL: Test connections
-        * Always a good idea to test your work before moving forward.
-        -----------------------------------------------------------------
-        
-        -----------------------------------------------------------------
+        * Always a good idea to test your work before moving forward. 
+
+        To test a simple GET request, insert the following:
+        -------------------------------------------------------
+            res.send('This is a test')                             // if localhost:3000/posts  =>  This is a test
+        -------------------------------------------------------
+
+        To test a GET (one) route, insert the following:
+        -------------------------------------------------------
+            res.send(req.params.id)                                // if localhost:3000/posts/12  =>  12
+        -------------------------------------------------------
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
