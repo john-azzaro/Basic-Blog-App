@@ -433,6 +433,18 @@ Phase 5: Create a mongoose schema and model (including virtuals and instance met
         ----------------------------------------------------------------
         
 
+    5.8: Import models.js to server.js
+        * Once you have your basic schema setup, you need a way to use all the work you've
+          done in your models.js file to use in the server.js file. To do this, you simply import
+          schema's you have in models.js to a destructured variable in server.js. Note that if you have
+          multiple models, you can import them in this destrcutured object.
+
+        --------------------------------------------------------------
+            const { BlogPost } = require('./models.js');                  // import BlogPost schema form model.js file.
+        --------------------------------------------------------------
+        
+
+
     5.9: Create virtuals (if needed):
         * A virtusal allows you to manipulate properties for you schema. For example, suppose you have a document with "author" 
           and that author property had an object as a value with 2 sub-properties, firstName and lastName. Although you could 
