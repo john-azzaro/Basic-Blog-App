@@ -433,7 +433,7 @@ Phase 5: Create a mongoose schema and model (including virtuals and instance met
         ----------------------------------------------------------------
         
 
-    5.8: Create virtuals (if needed):
+    5.9: Create virtuals (if needed):
         * A virtusal allows you to manipulate properties for you schema. For example, suppose you have a document with "author" 
           and that author property had an object as a value with 2 sub-properties, firstName and lastName. Although you could 
           have a combination in the document itself or concatenate the properties in the application, creating a virtual is 
@@ -450,11 +450,7 @@ Phase 5: Create a mongoose schema and model (including virtuals and instance met
          --------------------------------------------------------------------- 
 
 
-
-
-
-
-    5.9: Create an instance method:
+    5.10: Create an instance method:
         * An instance method is much like a security step where it allows you to select only certain properties from your schema.
         * For example, suppose your document has sensitive information like email and passwords that you do NOT want anyone else
           to see. An instance method would let you trim those sensitive peices out of the public view.
@@ -472,6 +468,13 @@ Phase 5: Create a mongoose schema and model (including virtuals and instance met
                 };
             };
         -------------------------------------------------------------------
+
+
+    5.10: 
+
+    -------------------------------------------------
+        const { BlogPost } = require('./models.js');
+    -------------------------------------------------
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

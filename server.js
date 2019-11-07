@@ -8,17 +8,21 @@ mongoose.Promise = global.Promise;                                              
 
                                                                                          // Imported from files:
 const { DATABASE_URL, PORT } = require('./config');                                      // 3.5 - Import DATABASE_URL and PORT from config.js file.
+const { BlogPost } = require('./models.js');                                             // 5.8 - Import BlogPost from models.js
+  
 
-                                                                                         // Instantiate the app:
+
+// Instantiate the app:
 const app = express();                                                                   // 2.1 - Instantiate the app using Express.
 
                                                                                          // Middleware:
 app.use(express.json());                                                                 // 4.1 - Install built-in middleware like express.json.
 app.use(morgan('common'));                                                               // 4.2 - Install third-party middleware like morgan        (note: phase 5 is in models.js).
 
+
                                                                                          // Routes:
 app.get('/posts', (req, res) => {                                                        // 6.1 - Get a request at the /posts endpoint.
-  res.send('This is a test')
+
 });
  
 app.get('/posts/:id', (req, res) => {                                                    // 6.1 - Get a request by id at the /posts endpoint.
@@ -40,12 +44,6 @@ app.delete('posts/:id', (req, res) => {                                         
 app.use('*', (req, res) => {                                                             // 6.2 - If nothing else responds, assume 404 Not Found.
     res.status(404).json({ message: 'Not Found' });
 });
-
-
-
-
-
-
 
 
                                                                                          // Server and Database connection...
@@ -90,4 +88,4 @@ if (require.main === module) {                                                  
 }
 
 
-//   module.exports = { runServer, app, closeServer };
+  module.exports = { runServer, app, closeServer };
