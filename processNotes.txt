@@ -9,7 +9,7 @@ Objective
     In this study, we'll make a basic blog application with CRUD operations (Create, Read, Update, and Delete) 
     functionality and implement mongoose so that we can store our information to a MongoDB database. I'm going
     to go step-by-step through the process as both a general guide for others and to document the process for
-    myself in an effort to visualize and improve workflow.
+    myself in an effort to visualize and improve workflow. 
 
 
 
@@ -526,8 +526,20 @@ Phase 6: Create route scaffold (and test).
 
             });
 
+        -------------------------------------------------------
+
+
+    6.2: Add middleware for routes that do not exist:       
+        -------------------------------------------------------
+
             app.use('*', (req, res) => {                            // REDIRECT 404
                 res.status(404).json({ message: 'Not Found' });     // send 404 and a json object saying "Not Found".
             });
-            
+
         -------------------------------------------------------
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes:
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
