@@ -662,17 +662,29 @@ Phase 7: Create routes
         });
     ------------------------------------------------------------------------------------------
 
-    7.5: Delete (delete) request:
+    7.5: Delete (delete) request by id at the /posts endpoint:
     ------------------------------------------------------------------------------------------
         app.delete('/posts/:id', (req, res) => {
-            BlogPost                                                                                      //
-                .findByIdAndRemove(req.params.id)
-                .then(() => {
+            BlogPost                                                                                      // call Blogpost...
+                .findByIdAndRemove(req.params.id)                                                         // and find by id and remove with the specified id.
+                .then(() => {                                                                             // then send.
                 res.status(204).json({ message: 'success' });
                 })
-                .catch(err => {
+                .catch(err => {                                                                           // if there is an error, log the error, send the message.
                 console.error(err);
                 res.status(500).json({ error: 'something went terribly wrong' });
+                });
+        });
+    ------------------------------------------------------------------------------------------
+
+    7.6: Delete (delete) request by id:
+    ------------------------------------------------------------------------------------------
+        app.delete('/:id', (req, res) => {
+            BlogPost                                                                                      // call the BlogPost...
+                .findByIdAndRemove(req.params.id)                                                         // and fidn by id and remove with the specified id.
+                .then(() => {                                                                             // then delete.
+                console.log(`Deleted blog post with id \`${req.params.id}\``);
+                res.status(204).end();
                 });
         });
     ------------------------------------------------------------------------------------------
