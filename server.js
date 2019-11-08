@@ -18,7 +18,7 @@ app.use(express.json());                                                        
 app.use(morgan('common'));                                                               // 4.2 - Install third-party middleware like morgan        (note: phase 5 is in models.js).
 
                                                                                          // Routes:
-app.get('/posts', (req, res) => {
+app.get('/posts', (req, res) => {                                                        // 7.1 - GET request to /posts (return all posts via serialization instance method).
   BlogPost
     .find()
     .then(posts => {
@@ -30,7 +30,7 @@ app.get('/posts', (req, res) => {
     });
 });
  
-app.get('/posts/:id', (req, res) => {
+app.get('/posts/:id', (req, res) => {                                                    // 7.2 - GET request by id (find the blogpost by id)
   BlogPost
     .findById(req.params.id)
     .then(post => res.json(post.serialize()))
