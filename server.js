@@ -30,6 +30,7 @@ app.get('/posts', (req, res) => {                                               
     });
 });
  
+
 app.get('/posts/:id', (req, res) => {                                                    // 7.2 - GET request by id (find the blogpost by id)
   BlogPost
     .findById(req.params.id)
@@ -39,6 +40,7 @@ app.get('/posts/:id', (req, res) => {                                           
       res.status(500).json({ error: 'Sprry, your request by id didnt work' });
     });
 });
+
 
 app.post('/posts', (req, res) => {                                                       // 7.3 - Post a request (create a post) at the /posts endpoint.
   const requiredFields = ['title', 'content', 'author'];                     
@@ -63,13 +65,32 @@ app.post('/posts', (req, res) => {                                              
      });
 });
 
-app.put('/posts/:id', (req, res) => {                                                    // 6.1 - Modify a document by id at the .posts endpoint.
 
+app.put('/posts/:id', (req, res) => {                                                    // 7.4 - Modify a document by id at the /posts endpoint.   
+   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
+      res.status(400).json({
+         error: 'Request path id and request body id values must match'
+      });
+   }
+
+   const updated = {};
+   const updateableFields = ['title', 'content', 'author'];
+   updateableFields.forEach(field => {
+      if (field in req.body) {
+         updated[field] = req.body[field];
+      }
+   });
+
+   BlogPost.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
+      .then(updatedPost => res.status(204).end())
+      .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
+
 
 app.delete('posts/:id', (req, res) => {                                                  // 6.1 - Delete a document by id at the /posts endpoint.
 
 });
+
 
 app.use('*', (req, res) => {                                                             // 6.2 - If nothing else responds, assume 404 Not Found.
     res.status(404).json({ message: 'Not Found' });
