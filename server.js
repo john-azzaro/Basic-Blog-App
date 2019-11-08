@@ -100,11 +100,21 @@ app.delete('posts/:id', (req, res) => {                                         
 });
 
 
+app.delete('/:id', (req, res) => {                                                      // 7.6: Delete a document by id.
+  BlogPost 
+      .findByIdAndRemove(req.params.id)  
+      .then(() => { 
+      console.log(`Deleted blog post with id \`${req.params.id}\``);
+      res.status(204).end();
+      });
+});
+
+
 app.use('*', (req, res) => {                                                             // 6.2 - If nothing else responds, assume 404 Not Found.
     res.status(404).json({ message: 'Not Found' });
 });
 
-                                                                                        // Server and Database connection...
+                                                                                         // Server and Database connection...
 let server;                                                                              // 3.6 - Declare server outside runServer.
         
 function runServer(databaseUrl, port=PORT) {                                             // 3.7 - Connect to database and run HTTP server.
@@ -146,4 +156,4 @@ if (require.main === module) {                                                  
 }
 
 
-// module.exports = { runServer, app, closeServer };                                        // 
+// module.exports = { runServer, app, closeServer };                                        // export the following function elsewhere in the code.
