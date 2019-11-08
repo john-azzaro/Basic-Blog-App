@@ -601,13 +601,39 @@ Phase 7: Create routes
 
     7.2: GET request by id:
     ------------------------------------------------------------------------------------------
-        app.get('/posts/:id', (req, res) => {                                                       // 7.2 - GET request by id (find the blogpost by id)
+        app.get('/posts/:id', (req, res) => {
         BlogPost                                                                                    // call BlogPost model...
             .findById(req.params.id)                                                                // and find by id (i.e. speicifed in the url)...
             .then(post => res.json(post.serialize()))                                               // and then return that specific post.
             .catch(err => {                                                                         // and if there is an error...
             console.error(err);                                                                     // log that error in the console...
             res.status(500).json({ error: 'Sorry, your request by id didnt work' });                // and send an error with status 500 (server error) and a message.
+            });
+        });
+    ------------------------------------------------------------------------------------------
+
+    7.3: POST request:
+    ------------------------------------------------------------------------------------------
+    app.post('/posts', (req, res) => {
+        const requiredFields = ['title', 'content', 'author'];                                      // These are the required fields in order to POST to the database. 
+        for (let i = 0; i < requiredFields.length; i++) {                                           // Check for required fields...
+            const field = requiredFields[i];  
+            if (!(field in req.body)) {
+                const message = `Missing \`${field}\` in request body`;
+                console.error(message);
+                return res.status(400).send(message);
+            }
+        }
+
+        BlogPost.create({                                                                            // Call BlogPost and create a new one...
+            title: req.body.title,                                                                   // with the title provided...
+            content: req.body.content,                                                               // and the content provided...
+            author: req.body.author                                                                  // and the author provided...
+        })
+            .then(blogPost => res.status(201).json(blogPost.serialize()))                            // then post the blog post to the database.
+            .catch(err => {                                                                          // and if there is an error...
+                console.error(err);                                                                  // log the error to the console...
+                res.status(500).json({ error: 'Something went wrong' });                             // and return an error and message.
             });
         });
     ------------------------------------------------------------------------------------------

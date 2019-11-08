@@ -40,8 +40,27 @@ app.get('/posts/:id', (req, res) => {                                           
     });
 });
 
-app.post('/posts', (req, res) => {                                                       // 6.1 - Post a request (create a post) at the /posts endpoint.
+app.post('/posts', (req, res) => {                                                       // 7.3 - Post a request (create a post) at the /posts endpoint.
+  const requiredFields = ['title', 'content', 'author'];                     
+  for (let i = 0; i < requiredFields.length; i++) {
+     const field = requiredFields[i];
+     if (!(field in req.body)) {
+        const message = `Missing \`${field}\` in request body`;
+        console.error(message);
+        return res.status(400).send(message);
+     }
+  }
 
+  BlogPost.create({
+     title: req.body.title,
+     content: req.body.content,
+     author: req.body.author
+  })
+     .then(blogPost => res.status(201).json(blogPost.serialize()))
+     .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: 'Something went wrong' });
+     });
 });
 
 app.put('/posts/:id', (req, res) => {                                                    // 6.1 - Modify a document by id at the .posts endpoint.
