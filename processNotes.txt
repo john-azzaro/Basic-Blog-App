@@ -536,11 +536,14 @@ Phase 6: Create route scaffold (and test).
 
             });
 
-                                                                    // DELETE posts                                 
+                                                                    // DELETE posts at the /posts endpoint                                 
             app.delete('posts/:id', (req, res) => {                 // delete with user id parameter.
 
             });
+                                                                   // DELETE posts
+            app.delete(':id', (req, res) => {                      // delete with user id parameter.
 
+            });
         -------------------------------------------------------
 
 
