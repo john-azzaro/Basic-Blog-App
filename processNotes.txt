@@ -573,3 +573,30 @@ Phase 6: Create route scaffold (and test).
               because no route has handled the request.
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+Phase 7: Create routes
+==========================================================================================
+-- Now that you have an idea of what your routes to look like, you can add the logic to 
+   connect the routes.
+==========================================================================================
+
+    7.1: GET request to /posts:
+    -----------------------------------------------------------------------------------------
+    app.get('/posts', (req, res) => {
+        BlogPost                                                                               // call BlogPost...
+            .find()                                                                            // ... and find all the blog posts...
+            .then(posts => {                                                                   // ... and then for all the posts...
+            res.json(posts.map(post => post.serialize()));                                     // ... send to the client the posts via the serialization instance method.
+            })
+            .catch(err => {                                                                    // If there is an error...
+            console.error(err);                                                                // ... log the error in the console.
+            res.status(500).json({ error: 'Sorry, your request to /posts didnt work' });       // ... and return 500 status (server error) and a message.
+            });
+        });
+    -----------------------------------------------------------------------------------------
+
+    7.2: GET

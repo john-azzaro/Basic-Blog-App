@@ -18,12 +18,26 @@ app.use(express.json());                                                        
 app.use(morgan('common'));                                                               // 4.2 - Install third-party middleware like morgan        (note: phase 5 is in models.js).
 
                                                                                          // Routes:
-app.get('/posts', (req, res) => {                                                        // 6.1 - Get a request at the /posts endpoint.
-
+app.get('/posts', (req, res) => {
+  BlogPost
+    .find()
+    .then(posts => {
+      res.json(posts.map(post => post.serialize()));
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'Sorry, your request to /posts didnt work' });
+    });
 });
  
-app.get('/posts/:id', (req, res) => {                                                    // 6.1 - Get a request by id at the /posts endpoint.
-  res.send(req.params.id);
+app.get('/posts/:id', (req, res) => {
+  BlogPost
+    .findById(req.params.id)
+    .then(post => res.json(post.serialize()))
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'Sprry, your request by id didnt work' });
+    });
 });
 
 app.post('/posts', (req, res) => {                                                       // 6.1 - Post a request (create a post) at the /posts endpoint.
@@ -42,7 +56,7 @@ app.use('*', (req, res) => {                                                    
     res.status(404).json({ message: 'Not Found' });
 });
 
-                                                                                         // Server and Database connection...
+                                                                                        // Server and Database connection...
 let server;                                                                              // 3.6 - Declare server outside runServer.
         
 function runServer(databaseUrl, port=PORT) {                                             // 3.7 - Connect to database and run HTTP server.
