@@ -662,4 +662,17 @@ Phase 7: Create routes
         });
     ------------------------------------------------------------------------------------------
 
-    7.5 
+    7.5: Delete (delete) request:
+    ------------------------------------------------------------------------------------------
+        app.delete('/posts/:id', (req, res) => {
+            BlogPost                                                                                      //
+                .findByIdAndRemove(req.params.id)
+                .then(() => {
+                res.status(204).json({ message: 'success' });
+                })
+                .catch(err => {
+                console.error(err);
+                res.status(500).json({ error: 'something went terribly wrong' });
+                });
+        });
+    ------------------------------------------------------------------------------------------

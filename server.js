@@ -87,8 +87,16 @@ app.put('/posts/:id', (req, res) => {                                           
 });
 
 
-app.delete('posts/:id', (req, res) => {                                                  // 6.1 - Delete a document by id at the /posts endpoint.
-
+app.delete('posts/:id', (req, res) => {                                                  // 7.5 - Delete a document by id at the /posts endpoint.
+    BlogPost  
+        .findByIdAndRemove(req.params.id)
+        .then(() => {
+        res.status(204).json({ message: 'success' });
+        })
+        .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: 'something went terribly wrong' });
+        });
 });
 
 
