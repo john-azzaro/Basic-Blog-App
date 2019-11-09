@@ -23,7 +23,7 @@ Process Workflow Summary
     Phase 4: Add initial middleware.
     Phase 5: Create a mongoose schema and model (including virtuals and instance methods if needed).
     Phase 6: Create route scaffold (and test).
-
+    Phase 7: Create routes.
 
 
 
